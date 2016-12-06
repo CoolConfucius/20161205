@@ -15,11 +15,17 @@
     <form action="/users" method="post">
       
       <label>
-        Your Name: <input type="text" name="yourname">
+        Your Name: <input type="text" name="name">
+      </label>
+      <label>
+        Your Age: <input type="number" name="age">
       </label>
       
       <input type="submit" value="Submit">
     </form>
+
+    <%= users %>
+
   </div>
 </body>
 </html>
