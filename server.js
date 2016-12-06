@@ -146,14 +146,14 @@ app.post('/mongooses/destroy/:id', function(req, res) {
 app.post('/mongooses/:id', function(req, res) {
   console.log("POST DATA", req.body);
   Mongoose.findOne({_id: req.params.id}, function(err, mongoose){
-    var mongoose = new Mongoose({
-      name: req.body.name, age: req.body.age
-    });
+    console.log("mongoose", mongoose);
+    mongoose.name = req.body.name || mongoose.name;
+    mongoose.age = req.body.age || mongoose.age;
     mongoose.save(function(err) {
       if(err) {
         console.log('something went wrong');
       } else { 
-        console.log('successfully added a mongoose!');
+        console.log('successfully edited a mongoose!');
         res.redirect('/');
       }
     })

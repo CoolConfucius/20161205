@@ -13,7 +13,7 @@
   <h1>Edit Mongoose</h1>
 
   <div class="container">
-    <form action="/mongooses" method="post">
+    <form action="/mongooses/<%= mongoose._id %>" method="post">
       
       <label>
         Name: <input type="text" name="name" value="<%= mongoose.name %>">
