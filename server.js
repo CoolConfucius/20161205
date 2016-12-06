@@ -124,8 +124,8 @@ app.post('/mongooses', function(req, res) {
 })
 
 app.get('/mongooses/edit/:id', function(req, res) {  
-  Mongoose.findOne({}, function(err, mongoose){
-    res.render('edit', {mongooses})
+  Mongoose.findOne({_id: req.params.id}, function(err, mongoose){
+    res.render('edit', {mongoose})
   })
 })
 
@@ -145,7 +145,7 @@ app.post('/mongooses/destroy/:id', function(req, res) {
 
 app.post('/mongooses/:id', function(req, res) {
   console.log("POST DATA", req.body);
-  Mongoose.findOne({}, function(err, mongoose){
+  Mongoose.findOne({_id: req.params.id}, function(err, mongoose){
     var mongoose = new Mongoose({
       name: req.body.name, age: req.body.age
     });
