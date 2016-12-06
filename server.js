@@ -131,18 +131,15 @@ app.get('/mongooses/edit/:id', function(req, res) {
 
 app.post('/mongooses/destroy/:id', function(req, res) {
   console.log("POST DATA", req.body);
-  Mongoose.findOne({}, function(err, mongoose){
-    var mongoose = new Mongoose({
-      name: req.body.name, age: req.body.age
-    });
-    mongoose.remove(function(err) {
-      if(err) {
-        console.log('something went wrong');
-      } else { 
-        console.log('successfully added a mongoose!');
-        res.redirect('/');
-      }
-    })
+  // ...delete 1 record by a certain key/vaue.
+  Mongoose.remove({_id: req.params.id}, function(err){
+   // This code will run when the DB has attempted to remove all matching records to {_id: 'insert record unique id here'}
+   if(err) {
+      console.log('something went wrong');
+    } else { 
+      console.log('successfully removed a mongoose!');
+      res.redirect('/');
+    }
   })
 })
 

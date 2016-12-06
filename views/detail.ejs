@@ -15,6 +15,12 @@
 
     <%= mongoose %> 
   
+
+    <br>
+    <form action="/mongooses/destroy/<%= mongoose.id %> " method="post">
+      <input type="submit" value="X">
+    </form>
+
     <br>
     <a href="/">home</a>
   </div>
