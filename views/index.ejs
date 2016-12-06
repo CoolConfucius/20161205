@@ -11,7 +11,8 @@
 </head>
 <body>
   <h1>Index</h1>
-  <div class="container">
+
+ <!--  <div class="container">
     <form action="/users" method="post">
       
       <label>
@@ -24,8 +25,19 @@
       <input type="submit" value="Submit">
     </form>
 
-    <%= users %>
+    <%= /*users*/ %> 
+  -->
+    <!-- <form action="/mongooses/new" method="get">
+      <input type="submit" value="New">
+    </form> -->
+    <a href="/mongooses/new">new</a>
+    <br>
+    <hr>
 
+    <% mongooses.forEach(function(element, index){ %>
+        <a href="/mongooses/<%= element._id %>">Name: <%= element.name %></a>
+        <br/>
+    <% }) %>
   </div>
 </body>
 </html>
